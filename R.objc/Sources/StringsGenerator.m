@@ -317,6 +317,7 @@
 {
     if (Session.shared.isMasimoVersion)
     {
+        table = [table stringByReplacingOccurrencesOfString:@".strings" withString:@""];
         return [NSString stringWithFormat:@"MASLocalizedStringFromTableInBundle(@\"%@\", @\"%@\", [NSBundle bundleForClass:self.class])", key, table];
     } else {
         table = [table stringByReplacingOccurrencesOfString:@".strings" withString:@""];
