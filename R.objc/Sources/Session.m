@@ -26,7 +26,7 @@ typedef NS_ENUM(NSUInteger, ArgType) {
 @property (nonatomic, strong) NSDate* startDate;
 
 @property (nonatomic, assign) BOOL isVerboseLoggingEnabled;
-@property (nonatomic, assign) BOOL isSysdataVersion;
+@property (nonatomic, assign) BOOL isMasimoVersion;
 @property (nonatomic, assign) BOOL refactorize;
 @property (nonatomic, assign) BOOL skipStrings;
 @property (nonatomic, assign) BOOL skipImages;
@@ -70,9 +70,9 @@ static Session* _session;
             [self shared].isVerboseLoggingEnabled = true;
             continue;
         }
-        else if ([s isEqualToString:@"-s"] || [s isEqualToString:@"--sysdata"])
+        else if ([s isEqualToString:@"-m"] || [s isEqualToString:@"--masimo"])
         {
-            [self shared].isSysdataVersion = true;
+            [self shared].isMasimoVersion = true;
             continue;
         }
         else if ([s isEqualToString:@"-r"] || [s isEqualToString:@"--refactor"])
@@ -109,7 +109,7 @@ static Session* _session;
         if (argType == ArgTypeBaseUnknown)
         {
             [CommonUtils log:@"Invalid Argument: %@", s];
-            [CommonUtils log:@"Usage: Robjc -p \"<path_to_project_root\" [-e \"<excluded dir>\"][-v -s -r --skip-strings --skip-images --skip-themes --skip-storyboards --skip-segues]"];
+            [CommonUtils log:@"Usage: Robjc -p \"<path_to_project_root\" [-e \"<excluded dir>\"][-v -m -r --skip-strings --skip-images --skip-themes --skip-storyboards --skip-segues]"];
             return -1;
         }
 

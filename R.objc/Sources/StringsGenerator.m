@@ -315,9 +315,9 @@
 
 - (NSString*) localizedStringWithKey:(NSString*)key fromTable:(NSString*)table
 {
-    if (Session.shared.isSysdataVersion)
+    if (Session.shared.isMasimoVersion)
     {
-        return [NSString stringWithFormat:@"SDLocalizedStringFromTableInBundleForClass(@\"%@\", @\"%@\", self.class)", key, table];
+        return [NSString stringWithFormat:@"MASLocalizedStringFromTableInBundle(@\"%@\", @\"%@\", [NSBundle bundleForClass:self.class])", key, table];
     } else {
         table = [table stringByReplacingOccurrencesOfString:@".strings" withString:@""];
         return [NSString stringWithFormat:@"NSLocalizedStringFromTableInBundle(@\"%@\", @\"%@\", [NSBundle bundleForClass:self.class], nil)", key, table];
@@ -331,9 +331,9 @@
     NSString* baseString = @"R.string.";
     
     NSString* pattern = nil;
-    if ([Session shared].isSysdataVersion)
+    if ([Session shared].isMasimoVersion)
     {
-        pattern = @"SDLocalizedString[FromTable]?\s?[(]\s?@[\"']([^\"'\)]*)[\"']\s?[)]";
+        pattern = @"MASLocalizedString[FromTable]?\s?[(]\s?@[\"']([^\"'\)]*)[\"']\s?[)]";
     }
     else
     {

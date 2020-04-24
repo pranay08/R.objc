@@ -235,9 +235,9 @@
     }
     
     NSMutableString* importString = [NSMutableString stringWithString:@"#import <UIKit/UIKit.h>\n"];
-    if (!Session.shared.skipStrings && ([Session.shared resourcesToGenerate] & ResourceTypeStrings) && Session.shared.isSysdataVersion)
+    if (!Session.shared.skipStrings && ([Session.shared resourcesToGenerate] & ResourceTypeStrings) && Session.shared.isMasimoVersion)
     {
-        [importString appendString:@"@import Glotty;\n"];
+        [importString appendString:@"#import \"MASLocalize.h\"\n"];
     }
     if (!Session.shared.skipThemes && ([Session.shared resourcesToGenerate] & ResourceTypeThemes))
     {

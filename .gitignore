@@ -1,0 +1,4 @@
+build/*
+*.DS_Store
+R.objc.xcodeproj/xcuserdata/*
+R.objc.xcodeproj/project.xcworkspace/xcuserdata/*

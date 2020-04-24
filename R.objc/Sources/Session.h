@@ -25,7 +25,7 @@ typedef NS_OPTIONS(NSUInteger, ResourceType) {
 @interface Session : NSObject
 
 @property (nonatomic, readonly) BOOL isVerboseLoggingEnabled;
-@property (nonatomic, readonly) BOOL isSysdataVersion;
+@property (nonatomic, readonly) BOOL isMasimoVersion;
 @property (nonatomic, readonly) BOOL refactorize;
 @property (nonatomic, readonly) BOOL skipStrings;
 @property (nonatomic, readonly) BOOL skipImages;
